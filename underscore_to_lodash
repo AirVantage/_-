@@ -46,8 +46,9 @@ grasp --in-place --only-matching --recursive \
   $DIRECTORY
 
 echo "$(tput setaf 1)"
-echo "#                                           #"
-echo "# Here are _.chain calls to handle MANUALLY #"
-echo "#                                           #"
+echo "#                                   #"
+echo "# Here are calls to handle MANUALLY #"
+echo "#                                   #"
 echo "$(tput setaf 0)"
 grasp --only-matching --recursive --equery '_.chain(__)' $DIRECTORY
+grasp --only-matching --recursive --equery '_(__)' $DIRECTORY
