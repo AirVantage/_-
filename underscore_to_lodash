@@ -1,0 +1,53 @@
+#!/bin/sh
+#
+# $ ./underscore_to_lodash directory_with_js_to_refactor
+#
+# All JS is refactored: you must remove `node_modules` beforehand.
+#
+DIRECTORY=$1
+if [ ! -d $DIRECTORY ]; then
+  echo "$DIRECTORY must be an existing directory"
+  exit 1
+fi
+
+echo 'underscore(require("underscore")) -> lodash(require("lodash"))'
+grasp --in-place --only-matching --recursive \
+  --equery 'require("underscore")' --replace 'require("lodash")' \
+  $DIRECTORY
+
+echo 'underscore(_.contains) -> lodash(_.includes)'
+grasp --in-place --only-matching --recursive \
+  --equery '_.contains($array, $value)' --replace '_.includes({{array}}, {{value}})' \
+  $DIRECTORY
+
+echo 'underscore(_.extend) -> lodash(_.assignIn)'
+grasp --in-place --only-matching --recursive \
+  --equery '_.extend($object, $ownObject)' --replace '_.assignIn({{object}}, {{ownObject}})' \
+  $DIRECTORY
+
+echo 'underscore(_.pluck) -> lodash(_.map)'
+grasp --in-place --only-matching --recursive \
+  --equery '_.pluck($object, $field)' --replace '_.map({{object}}, {{field}})' \
+  $DIRECTORY
+
+echo 'underscore(_.each) -> lodash(_.forEach)'
+grasp --in-place --only-matching --recursive \
+  --equery '_.each($array, $function)' --replace '_.forEach({{array}}, {{function}})' \
+  $DIRECTORY
+
+echo 'underscore(_.first) -> lodash(_.head)'
+grasp --in-place --only-matching --recursive \
+  --equery '_.first($array)' --replace '_.head({{array}})' \
+  $DIRECTORY
+
+echo 'underscore(_.any) -> lodash(_.some)'
+grasp --in-place --only-matching --recursive \
+  --equery '_.any($array)' --replace '_.some({{array}})' \
+  $DIRECTORY
+
+echo "$(tput setaf 1)"
+echo "#                                           #"
+echo "# Here are _.chain calls to handle MANUALLY #"
+echo "#                                           #"
+echo "$(tput setaf 0)"
+grasp --only-matching --recursive --equery '_.chain(__)' $DIRECTORY
