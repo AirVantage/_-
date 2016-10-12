@@ -4,46 +4,92 @@
 #
 # All JS is refactored: you must remove `node_modules` beforehand.
 #
-DIRECTORY=$1
-if [ ! -d $DIRECTORY ]; then
-  echo "$DIRECTORY must be an existing directory"
+DIRECTORY=`readlink -f $1`
+if [ ! -d $DIRECTORY ] || [ -z $DIRECTORY ]; then
+  echo "Single directory is mandatory"
   exit 1
 fi
 
+echo 'Working with:' $DIRECTORY
 echo 'underscore(require("underscore")) -> lodash(require("lodash"))'
-grasp --in-place --only-matching --recursive \
-  --equery 'require("underscore")' --replace 'require("lodash")' \
-  $DIRECTORY
+(
+  grasp --equery 'require("underscore")' --replace 'require("lodash")' \
+    --in-place --only-matching --recursive $DIRECTORY ||
+  echo "$(tput setaf 3)Bad stuff with underscore(require(\"underscore\")) -> lodash(require(\"lodash\"))$(tput setaf 0)"
+) &&
+cd $DIRECTORY &&
+git commit -a -m 'underscore(require("underscore")) -> lodash(require("lodash"))' &&
+cd -
 
 echo 'underscore(_.contains) -> lodash(_.includes)'
-grasp --in-place --only-matching --recursive \
-  --equery '_.contains($array, $value)' --replace '_.includes({{array}}, {{value}})' \
-  $DIRECTORY
+(
+  grasp --equery '_.contains($array, $value)' --replace '_.includes({{array}}, {{value}})' \
+    --in-place --only-matching --recursive $DIRECTORY ||
+  echo "$(tput setaf 3)Bad stuff with underscore(_.contains) -> lodash(_.includes)$(tput setaf 0)"
+) &&
+cd $DIRECTORY &&
+git commit -a -m 'underscore(_.contains) -> lodash(_.includes)' &&
+cd -
 
 echo 'underscore(_.extend) -> lodash(_.assignIn)'
-grasp --in-place --only-matching --recursive \
-  --equery '_.extend($object, $ownObject)' --replace '_.assignIn({{object}}, {{ownObject}})' \
-  $DIRECTORY
+(
+  grasp --equery '_.extend($object, $ownObject)' --replace '_.assignIn({{object}}, {{ownObject}})' \
+    --in-place --only-matching --recursive $DIRECTORY ||
+  echo "$(tput setaf 3)Bad stuff with underscore(_.extend) -> lodash(_.assignIn)$(tput setaf 0)"
+) &&
+cd $DIRECTORY &&
+git commit -a -m 'underscore(_.extend) -> lodash(_.assignIn)' &&
+cd -
 
 echo 'underscore(_.pluck) -> lodash(_.map)'
-grasp --in-place --only-matching --recursive \
-  --equery '_.pluck($object, $field)' --replace '_.map({{object}}, {{field}})' \
-  $DIRECTORY
+(
+  grasp --equery '_.pluck($object, $field)' --replace '_.map({{object}}, {{field}})' \
+    --in-place --only-matching --recursive $DIRECTORY ||
+  echo "$(tput setaf 3)Bad stuff with underscore(_.pluck) -> lodash(_.map)$(tput setaf 0)"
+) &&
+cd $DIRECTORY &&
+git commit -a -m 'underscore(_.pluck) -> lodash(_.map)' &&
+cd -
 
 echo 'underscore(_.each) -> lodash(_.forEach)'
-grasp --in-place --only-matching --recursive \
-  --equery '_.each($array, $function)' --replace '_.forEach({{array}}, {{function}})' \
-  $DIRECTORY
+(
+  grasp --equery '_.each($array, $function)' --replace '_.forEach({{array}}, {{function}})' \
+    --in-place --only-matching --recursive $DIRECTORY ||
+  echo "$(tput setaf 3)Bad stuff with underscore(_.each) -> lodash(_.forEach)$(tput setaf 0)"
+) &&
+cd $DIRECTORY &&
+git commit -a -m 'underscore(_.each) -> lodash(_.forEach)' &&
+cd -
 
 echo 'underscore(_.first) -> lodash(_.head)'
-grasp --in-place --only-matching --recursive \
-  --equery '_.first($array)' --replace '_.head({{array}})' \
-  $DIRECTORY
+(
+  grasp --equery '_.first($array)' --replace '_.head({{array}})' \
+    --in-place --only-matching --recursive $DIRECTORY ||
+  echo "$(tput setaf 3)Bad stuff with underscore(_.first) -> lodash(_.head)$(tput setaf 0)"
+) &&
+cd $DIRECTORY &&
+git commit -a -m 'underscore(_.first) -> lodash(_.head)' &&
+cd -
 
 echo 'underscore(_.any) -> lodash(_.some)'
-grasp --in-place --only-matching --recursive \
-  --equery '_.any($array)' --replace '_.some({{array}})' \
-  $DIRECTORY
+(
+  grasp --equery '_.any($array)' --replace '_.some({{array}})' \
+    --in-place --only-matching --recursive $DIRECTORY ||
+  echo "$(tput setaf 3)Bad stuff with underscore(_.any) -> lodash(_.some)$(tput setaf 0)"
+) &&
+cd $DIRECTORY &&
+git commit -a -m 'underscore(_.any) -> lodash(_.some)' &&
+cd -
+
+echo 'underscore(_.rest) -> lodash(_.tail)'
+(
+  grasp --equery '_.rest($array)' --replace '_.tail({{array}})' \
+    --in-place --only-matching --recursive $DIRECTORY ||
+  echo "$(tput setaf 3)Bad stuff with underscore(_.rest) -> lodash(_.tail)$(tput setaf 0)"
+) &&
+cd $DIRECTORY &&
+git commit -a -m 'underscore(_.rest) -> lodash(_.tail)' &&
+cd -
 
 echo "$(tput setaf 1)"
 echo "#                                   #"
