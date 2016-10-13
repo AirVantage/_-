@@ -98,3 +98,21 @@ echo "#                                   #"
 echo "$(tput setaf 0)"
 grasp --only-matching --recursive --equery '_.chain(__)' $DIRECTORY
 grasp --only-matching --recursive --equery '_(__)' $DIRECTORY
+
+#
+# Check if `grasp` missed some calls
+#
+for fn in \
+  "_\.any" \
+  "_\.contains" \
+  "_\.each" \
+  "_\.extend" \
+  "_\.first" \
+  "_\.pluck" \
+  "_\.rest"
+do
+  if grep --quiet --max-count=1 --recursive --exclude-dir=.git -e $fn $DIRECTORY
+  then
+    grep -rnH --color --exclude-dir=.git -e $fn $DIRECTORY
+  fi
+done
