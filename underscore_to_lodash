@@ -33,7 +33,7 @@ cd -
 
 echo 'underscore(_.extend) -> lodash(_.assignIn)'
 (
-  grasp --equery '_.extend($object, $ownObject)' --replace '_.assignIn({{object}}, {{ownObject}})' \
+  grasp --equery '_.extend(_$objects)' --replace '_.assignIn({{objects | join ", "}})' \
     --in-place --only-matching --recursive $DIRECTORY ||
   echo "$(tput setaf 3)Bad stuff with underscore(_.extend) -> lodash(_.assignIn)$(tput setaf 0)"
 ) &&
