@@ -17,9 +17,9 @@ echo 'underscore(require("underscore")) -> lodash(require("lodash"))'
     --in-place --only-matching --recursive $DIRECTORY ||
   echo "$(tput setaf 3)Bad stuff with underscore(require(\"underscore\")) -> lodash(require(\"lodash\"))$(tput setaf 0)"
 ) &&
-cd $DIRECTORY &&
-git commit -a -m 'underscore(require("underscore")) -> lodash(require("lodash"))' &&
-cd -
+cd $DIRECTORY > /dev/null &&
+git commit -a -m 'underscore(require("underscore")) -> lodash(require("lodash"))' > /dev/null &&
+cd - > /dev/null
 
 echo 'underscore(_.contains) -> lodash(_.includes)'
 (
@@ -27,9 +27,9 @@ echo 'underscore(_.contains) -> lodash(_.includes)'
     --in-place --only-matching --recursive $DIRECTORY ||
   echo "$(tput setaf 3)Bad stuff with underscore(_.contains) -> lodash(_.includes)$(tput setaf 0)"
 ) &&
-cd $DIRECTORY &&
-git commit -a -m 'underscore(_.contains) -> lodash(_.includes)' &&
-cd -
+cd $DIRECTORY > /dev/null &&
+git commit -a -m 'underscore(_.contains) -> lodash(_.includes)' > /dev/null &&
+cd - > /dev/null
 
 echo 'underscore(_.extend) -> lodash(_.assignIn)'
 (
@@ -37,9 +37,9 @@ echo 'underscore(_.extend) -> lodash(_.assignIn)'
     --in-place --only-matching --recursive $DIRECTORY ||
   echo "$(tput setaf 3)Bad stuff with underscore(_.extend) -> lodash(_.assignIn)$(tput setaf 0)"
 ) &&
-cd $DIRECTORY &&
-git commit -a -m 'underscore(_.extend) -> lodash(_.assignIn)' &&
-cd -
+cd $DIRECTORY > /dev/null &&
+git commit -a -m 'underscore(_.extend) -> lodash(_.assignIn)' > /dev/null &&
+cd - > /dev/null
 
 echo 'underscore(_.pluck) -> lodash(_.map)'
 (
@@ -47,9 +47,9 @@ echo 'underscore(_.pluck) -> lodash(_.map)'
     --in-place --only-matching --recursive $DIRECTORY ||
   echo "$(tput setaf 3)Bad stuff with underscore(_.pluck) -> lodash(_.map)$(tput setaf 0)"
 ) &&
-cd $DIRECTORY &&
-git commit -a -m 'underscore(_.pluck) -> lodash(_.map)' &&
-cd -
+cd $DIRECTORY > /dev/null &&
+git commit -a -m 'underscore(_.pluck) -> lodash(_.map)' > /dev/null &&
+cd - > /dev/null
 
 echo 'underscore(_.each) -> lodash(_.forEach)'
 (
@@ -57,9 +57,9 @@ echo 'underscore(_.each) -> lodash(_.forEach)'
     --in-place --only-matching --recursive $DIRECTORY ||
   echo "$(tput setaf 3)Bad stuff with underscore(_.each) -> lodash(_.forEach)$(tput setaf 0)"
 ) &&
-cd $DIRECTORY &&
-git commit -a -m 'underscore(_.each) -> lodash(_.forEach)' &&
-cd -
+cd $DIRECTORY > /dev/null &&
+git commit -a -m 'underscore(_.each) -> lodash(_.forEach)' > /dev/null &&
+cd - > /dev/null
 
 echo 'underscore(_.first) -> lodash(_.head)'
 (
@@ -67,9 +67,9 @@ echo 'underscore(_.first) -> lodash(_.head)'
     --in-place --only-matching --recursive $DIRECTORY ||
   echo "$(tput setaf 3)Bad stuff with underscore(_.first) -> lodash(_.head)$(tput setaf 0)"
 ) &&
-cd $DIRECTORY &&
-git commit -a -m 'underscore(_.first) -> lodash(_.head)' &&
-cd -
+cd $DIRECTORY > /dev/null &&
+git commit -a -m 'underscore(_.first) -> lodash(_.head)' > /dev/null &&
+cd - > /dev/null
 
 echo 'underscore(_.any) -> lodash(_.some)'
 (
@@ -77,9 +77,9 @@ echo 'underscore(_.any) -> lodash(_.some)'
     --in-place --only-matching --recursive $DIRECTORY ||
   echo "$(tput setaf 3)Bad stuff with underscore(_.any) -> lodash(_.some)$(tput setaf 0)"
 ) &&
-cd $DIRECTORY &&
-git commit -a -m 'underscore(_.any) -> lodash(_.some)' &&
-cd -
+cd $DIRECTORY > /dev/null &&
+git commit -a -m 'underscore(_.any) -> lodash(_.some)' > /dev/null &&
+cd - > /dev/null
 
 echo 'underscore(_.rest) -> lodash(_.tail)'
 (
@@ -87,9 +87,59 @@ echo 'underscore(_.rest) -> lodash(_.tail)'
     --in-place --only-matching --recursive $DIRECTORY ||
   echo "$(tput setaf 3)Bad stuff with underscore(_.rest) -> lodash(_.tail)$(tput setaf 0)"
 ) &&
-cd $DIRECTORY &&
-git commit -a -m 'underscore(_.rest) -> lodash(_.tail)' &&
-cd -
+cd $DIRECTORY > /dev/null &&
+git commit -a -m 'underscore(_.rest) -> lodash(_.tail)' > /dev/null &&
+cd - > /dev/null
+
+echo 'lodash(_.include) -> lodash(_.includes)'
+(
+  grasp --equery '_.include($array, $value)' --replace '_.includes({{array}}, {{value}})' \
+    --in-place --only-matching --recursive $DIRECTORY ||
+  echo "$(tput setaf 3)Bad stuff with lodash(_.include) -> lodash(_.includes)$(tput setaf 0)"
+) &&
+cd $DIRECTORY > /dev/null &&
+git commit -a -m 'lodash(_.include) -> lodash(_.includes)' > /dev/null &&
+cd - > /dev/null
+
+echo 'lodash(_.pairs) -> lodash(_.toPairs)'
+(
+  grasp --equery '_.pairs($object)' --replace '_.toPairs({{object}})' \
+    --in-place --only-matching --recursive $DIRECTORY ||
+  echo "$(tput setaf 3)Bad stuff with lodash(_.pairs) -> lodash(_.toPairs)$(tput setaf 0)"
+) &&
+cd $DIRECTORY > /dev/null &&
+git commit -a -m 'lodash(_.pairs) -> lodash(_.toPairs)' > /dev/null &&
+cd - > /dev/null
+
+echo 'lodash(_.padLeft) -> lodash(_.padStart)'
+(
+  grasp --equery '_.padLeft($string, $length)' --replace '_.padStart({{string}}, {{length}})' \
+    --in-place --only-matching --recursive $DIRECTORY ||
+  echo "$(tput setaf 3)Bad stuff with lodash(_.padLeft) -> lodash(_.padStart)$(tput setaf 0)"
+) &&
+cd $DIRECTORY > /dev/null &&
+git commit -a -m 'lodash(_.padLeft) -> lodash(_.padStart)' > /dev/null &&
+cd - > /dev/null
+
+echo 'lodash(_.padLeft) -> lodash(_.padStart)'
+(
+  grasp --equery '_.padLeft($string, $length, $chars)' --replace '_.padStart({{string}}, {{length}}, {{chars}})' \
+    --in-place --only-matching --recursive $DIRECTORY ||
+  echo "$(tput setaf 3)Bad stuff with lodash(_.padLeft) -> lodash(_.padStart)$(tput setaf 0)"
+) &&
+cd $DIRECTORY > /dev/null &&
+git commit -a -m 'lodash(_.padLeft) -> lodash(_.padStart)' > /dev/null &&
+cd - > /dev/null
+
+echo 'lodash(_.findWhere) -> lodash(_.find)'
+(
+  grasp --equery '_.findWhere($collection, $source)' --replace '_.find({{collection}}, {{source}})' \
+    --in-place --only-matching --recursive $DIRECTORY ||
+  echo "$(tput setaf 3)Bad stuff with lodash(_.findWhere) -> lodash(_.find)$(tput setaf 0)"
+) &&
+cd $DIRECTORY > /dev/null &&
+git commit -a -m 'lodash(_.findWhere) -> lodash(_.find)' > /dev/null &&
+cd - > /dev/null
 
 echo "$(tput setaf 1)"
 echo "#                                   #"
@@ -107,7 +157,12 @@ for fn in \
   "_\.contains" \
   "_\.each" \
   "_\.extend" \
+  "_\.find" \
+  "_\.findWhere" \
   "_\.first" \
+  "_\.include(" \
+  "_\.padLeft" \
+  "_\.pairs" \
   "_\.pluck" \
   "_\.rest"
 do
