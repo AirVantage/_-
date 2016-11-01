@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# $ ./lodash3_to_lodash4 directory_with_js_to_refactor
+#
+# All JS is refactored: you must remove `node_modules` beforehand.
+#
+DIRECTORY=`readlink -f $1`
+if [ ! -d $DIRECTORY ] || [ -z $DIRECTORY ]; then
+  echo "Single directory is mandatory"
+  exit 1
+fi
+
+echo 'lodash(_.find) -> lodash(_.find)'
+(
+  grasp --equery '_.find($object, $key, $value)' --replace '_.find({{object}}, [{{key}}, {{value}}])' \
+    --in-place --only-matching --recursive $DIRECTORY ||
+  echo "$(tput setaf 3)Bad stuff with lodash(_.find) -> lodash(_.find)$(tput setaf 0)"
+) &&
+cd $DIRECTORY > /dev/null &&
+git commit -a -m 'lodash(_.find) -> lodash(_.find)' > /dev/null &&
+cd - > /dev/null

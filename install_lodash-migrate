@@ -1,0 +1,17 @@
+#!/bin/sh
+DIRECTORY=`readlink -f $1`
+if [ ! -d $DIRECTORY ] || [ -z $DIRECTORY ]; then
+  echo "Single directory is mandatory"
+  exit 1
+fi
+
+cd $DIRECTORY > /dev/null
+if npm install --save lodash-migrate &&
+  grasp --equery 'var _ = require("lodash");' \
+    --replace 'var _ = require("lodash");\nrequire("lodash-migrate");' \
+    --in-place --only-matching --recursive .
+then
+  git commit -a -m '[Drop me] require("lodash-migrate") in the hoooooooooouse' > /dev/null
+  echo "All good."
+fi
+cd - > /dev/null
