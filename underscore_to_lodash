@@ -14,6 +14,7 @@
 # underscore(_.isElement) -> lodash(_.isElement)
 # underscore(_.isBoolean) -> lodash(_.isBoolean)
 # underscore(_.clone) -> lodash(_.clone)
+# underscore(_.without) -> lodash(_.without)
 #
 # underscore(_.defaults) -> lodash(_.defaults) No work to do
 # underscore(_.min) -> lodash(_.min) No work to do
