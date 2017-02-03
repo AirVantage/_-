@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.mapObject) -> lodash(_.bind(_.mapValues))
+#
+cd $1 &&
+grasp --equery '_.mapObject($object, $fn, $context)' \
+    --replace '_.mapValues({{object}}, _.bind({{fn}}), {{context}}))' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.mapObject) -> lodash(_.bind(_.mapValues))' > /dev/null
