@@ -10,6 +10,7 @@
 #
 # underscore(_.negate) -> lodash(_.negate)
 # underscore(_.isNaN) -> lodash(_.isNaN)
+# underscore(_.intersection) -> lodash(_.intersection)
 #
 # underscore(_.initial) -> lodash(_.inital) No work to do
 # underscore(_.defaults) -> lodash(_.defaults) No work to do
