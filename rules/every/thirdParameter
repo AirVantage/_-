@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.every) -> lodash(_.bind(_.every))
+#
+cd $1 &&
+grasp --equery '_.every($list, $fn, $context)' \
+    --replace '_.every({{list}}, _.bind({{fn}}, {{context}}))' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.every) -> lodash(_.bind(_.every))' > /dev/null

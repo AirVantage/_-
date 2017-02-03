@@ -38,7 +38,6 @@
 # underscore(_.values) -> lodash(_.values)
 # underscore(_.without) -> lodash(_.without)
 #
-# underscore(_.every) -> lodash(_.every) Functions signature differ, problems start with third parameter
 
 DIRECTORY=`readlink -f $1`
 if [ ! -d $DIRECTORY ] || [ -z $DIRECTORY ]; then
