@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.filter) -> lodash(_.bind(_.filter))
+#
+cd $1 &&
+grasp --equery '_.filter($list, $fn, $context)' \
+    --replace '_.filter({{list}}, _.bind({{fn}}, {{context}}))' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.filter) -> lodash(_.bind(_.filter))' > /dev/null
