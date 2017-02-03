@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.sortBy) -> lodash(_.sortBy)
+#
+cd $1 &&
+grasp --equery '_.sortBy($list, $fn, $context)' \
+    --replace '_.sortBy({{list}}, _.bind({{fn}}, {{context}}))' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.sortBy) -> lodash(_.bind(_.sortBy))' > /dev/null
