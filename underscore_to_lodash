@@ -11,8 +11,8 @@
 # underscore(_.negate) -> lodash(_.negate)
 # underscore(_.isNaN) -> lodash(_.isNaN)
 # underscore(_.intersection) -> lodash(_.intersection)
+# underscore(_.isElement) -> lodash(_.isElement)
 #
-# underscore(_.initial) -> lodash(_.inital) No work to do
 # underscore(_.defaults) -> lodash(_.defaults) No work to do
 # underscore(_.min) -> lodash(_.min) No work to do
 # underscore(_.max) -> lodash(_.max) No work to do
@@ -24,7 +24,7 @@ if [ ! -d $DIRECTORY ] || [ -z $DIRECTORY ]; then
   exit 1
 fi
 
-for rule in $( find rules -type f )
+for rule in $( find rules -type f | sort )
 do
   if $rule $DIRECTORY
   then
