@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.initial) -> lodash(_.dropRight)
+#
+cd $1 &&
+grasp --equery '_.initial($array, $n)' \
+    --replace '_.dropRight({{array}}, {{n}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.initial) -> lodash(_.dropRight)' > /dev/null
