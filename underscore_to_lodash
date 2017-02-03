@@ -10,6 +10,7 @@
 #
 # underscore(_.bind) -> lodash(_.bind)
 # underscore(_.clone) -> lodash(_.clone)
+# underscore(_.compact) -> lodash(_.compact)
 # underscore(_.difference) -> lodash(_.difference)
 # underscore(_.intersection) -> lodash(_.intersection)
 # underscore(_.isArray) -> lodash(_.isArray)
