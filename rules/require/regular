@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# require("underscore") -> require("lodash")
+#
+cd $1 &&
+grasp --equery 'require("underscore")' \
+    --replace 'require("lodash")' \
+    --in-place --only-matching --recursive .  > /dev/null &&
+git commit -a -m 'underscore(require("underscore")) -> lodash(require("lodash"))' > /dev/null

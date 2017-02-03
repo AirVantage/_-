@@ -33,16 +33,6 @@ done
 
 exit 0
 
-echo 'underscore(require("underscore")) -> lodash(require("lodash"))'
-(
-  grasp --equery 'require("underscore")' --replace 'require("lodash")' \
-    --in-place --only-matching --recursive $DIRECTORY ||
-  echo "$(tput setaf 3)Bad stuff with underscore(require(\"underscore\")) -> lodash(require(\"lodash\"))$(tput setaf 0)"
-) &&
-cd $DIRECTORY > /dev/null &&
-git commit -a -m 'underscore(require("underscore")) -> lodash(require("lodash"))' > /dev/null &&
-cd - > /dev/null
-
 echo 'underscore(_.contains) -> lodash(_.includes)'
 (
   grasp --equery '_.contains($array, $value)' --replace '_.includes({{array}}, {{value}})' \
