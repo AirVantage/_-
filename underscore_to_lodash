@@ -6,9 +6,11 @@
 #
 
 #
-# Handled transformation
+# Transparent transformations
 #
 # underscore(_.negate) -> lodash(_.negate)
+# underscore(_.isNaN) -> lodash(_.isNaN)
+#
 # underscore(_.initial) -> lodash(_.inital) No work to do
 # underscore(_.defaults) -> lodash(_.defaults) No work to do
 # underscore(_.min) -> lodash(_.min) No work to do
