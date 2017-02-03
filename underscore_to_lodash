@@ -39,16 +39,6 @@ done
 
 exit 0
 
-echo 'underscore(_.pluck) -> lodash(_.map)'
-(
-  grasp --equery '_.pluck($object, $field)' --replace '_.map({{object}}, {{field}})' \
-    --in-place --only-matching --recursive $DIRECTORY ||
-  echo "$(tput setaf 3)Bad stuff with underscore(_.pluck) -> lodash(_.map)$(tput setaf 0)"
-) &&
-cd $DIRECTORY > /dev/null &&
-git commit -a -m 'underscore(_.pluck) -> lodash(_.map)' > /dev/null &&
-cd - > /dev/null
-
 echo 'underscore(_.each) -> lodash(_.forEach)'
 (
   grasp --equery '_.each($array, $function)' --replace '_.forEach({{array}}, {{function}})' \

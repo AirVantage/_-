@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.pluck) -> lodash(_.map)
+#
+cd $1 &&
+grasp --equery '_.pluck($object, $field)' \
+    --replace '_.map({{object}}, {{field}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.pluck) -> lodash(_.map)' > /dev/null
