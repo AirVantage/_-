@@ -8,8 +8,8 @@
 #
 # Handled transformation
 #
+# underscore(_.negate) -> lodash(_.negate)
 # underscore(_.initial) -> lodash(_.inital) No work to do
-# underscore(_.negate) -> lodash(_.negate) No work to do
 # underscore(_.defaults) -> lodash(_.defaults) No work to do
 # underscore(_.min) -> lodash(_.min) No work to do
 # underscore(_.max) -> lodash(_.max) No work to do
