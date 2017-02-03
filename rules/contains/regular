@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.contains) -> lodash(_.includes)
+#
+cd $1 &&
+grasp --equery '_.contains($array, $value)' \
+    --replace '_.includes({{array}}, {{value}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.contains) -> lodash(_.includes)' > /dev/null

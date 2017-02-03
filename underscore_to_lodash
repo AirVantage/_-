@@ -39,16 +39,6 @@ done
 
 exit 0
 
-echo 'underscore(_.contains) -> lodash(_.includes)'
-(
-  grasp --equery '_.contains($array, $value)' --replace '_.includes({{array}}, {{value}})' \
-    --in-place --only-matching --recursive $DIRECTORY ||
-  echo "$(tput setaf 3)Bad stuff with underscore(_.contains) -> lodash(_.includes)$(tput setaf 0)"
-) &&
-cd $DIRECTORY > /dev/null &&
-git commit -a -m 'underscore(_.contains) -> lodash(_.includes)' > /dev/null &&
-cd - > /dev/null
-
 echo 'underscore(_.pluck) -> lodash(_.map)'
 (
   grasp --equery '_.pluck($object, $field)' --replace '_.map({{object}}, {{field}})' \
