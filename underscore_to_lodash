@@ -17,6 +17,7 @@
 # underscore(_.isBoolean) -> lodash(_.isBoolean)
 # underscore(_.isElement) -> lodash(_.isElement)
 # underscore(_.isNaN) -> lodash(_.isNaN)
+# underscore(_.isNumber) -> lodash(_.isNumber)
 # underscore(_.negate) -> lodash(_.negate)
 # underscore(_.partial) -> lodash(_.partial)
 # underscore(_.size) -> lodash(_.size)
