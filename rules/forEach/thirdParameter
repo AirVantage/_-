@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.forEach) -> lodash(_.bind(_.forEach))
+#
+cd $1 &&
+grasp --equery '_.forEach($list, $fn, $context)' \
+    --replace '_.forEach({{list}}, _.bind({{fn}}), {{context}}))' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.forEach) -> lodash(_.bind(_.forEach))' > /dev/null
