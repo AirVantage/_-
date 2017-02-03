@@ -16,6 +16,7 @@
 # underscore(_.isElement) -> lodash(_.isElement)
 # underscore(_.isNaN) -> lodash(_.isNaN)
 # underscore(_.negate) -> lodash(_.negate)
+# underscore(_.partial) -> lodash(_.partial)
 # underscore(_.union) -> lodash(_.union)
 # underscore(_.without) -> lodash(_.without)
 #
