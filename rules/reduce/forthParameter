@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.reduce) -> lodash(_.bind(_.reduce))
+#
+cd $1 &&
+grasp --equery '_.reduce($list, $fn, $memo, $context)' \
+    --replace '_.reduce({{list}}, _.bind({{fn}}, {{context}}), {{memo}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.reduce) -> lodash(_.bind(_.reduce))' > /dev/null
