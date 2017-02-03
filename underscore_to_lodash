@@ -24,6 +24,7 @@
 # underscore(_.size) -> lodash(_.size)
 # underscore(_.union) -> lodash(_.union)
 # underscore(_.uniqueId) -> lodash(_.uniqueId)
+# underscore(_.values) -> lodash(_.values)
 # underscore(_.without) -> lodash(_.without)
 #
 # underscore(_.defaults) -> lodash(_.defaults) No work to do
