@@ -4,11 +4,34 @@
 #
 # All JS is refactored: you must remove `node_modules` beforehand.
 #
+
+#
+# Handled transformation
+#
+# underscore(_.initial) -> lodash(_.inital) No work to do
+# underscore(_.negate) -> lodash(_.negate) No work to do
+# underscore(_.defaults) -> lodash(_.defaults) No work to do
+# underscore(_.min) -> lodash(_.min) No work to do
+# underscore(_.max) -> lodash(_.max) No work to do
+# underscore(_.every) -> lodash(_.every) Functions signature differ, problems start with third parameter
+
 DIRECTORY=`readlink -f $1`
 if [ ! -d $DIRECTORY ] || [ -z $DIRECTORY ]; then
   echo "Single directory is mandatory"
   exit 1
 fi
+
+for rule in $( find rules -type f )
+do
+  if $rule $DIRECTORY
+  then
+    echo "o: $rule"
+  else
+    echo "x: $rule"
+  fi
+done
+
+exit 0
 
 echo 'underscore(require("underscore")) -> lodash(require("lodash"))'
 (
@@ -28,16 +51,6 @@ echo 'underscore(_.contains) -> lodash(_.includes)'
 ) &&
 cd $DIRECTORY > /dev/null &&
 git commit -a -m 'underscore(_.contains) -> lodash(_.includes)' > /dev/null &&
-cd - > /dev/null
-
-echo 'underscore(_.extend) -> lodash(_.assignIn)'
-(
-  grasp --equery '_.extend(_$objects)' --replace '_.assignIn({{objects | join ", "}})' \
-    --in-place --only-matching --recursive $DIRECTORY ||
-  echo "$(tput setaf 3)Bad stuff with underscore(_.extend) -> lodash(_.assignIn)$(tput setaf 0)"
-) &&
-cd $DIRECTORY > /dev/null &&
-git commit -a -m 'underscore(_.extend) -> lodash(_.assignIn)' > /dev/null &&
 cd - > /dev/null
 
 echo 'underscore(_.pluck) -> lodash(_.map)'
