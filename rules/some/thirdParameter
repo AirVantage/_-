@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.some) -> lodash(_.bind(_.some))
+#
+cd $1 &&
+grasp --equery '_.some($collection, $fn, $context)' \
+    --replace '_.some({{collection}}, _.bind({{fn}}, {{context}}))' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.some) -> lodash(_.bind(_.some))' > /dev/null
