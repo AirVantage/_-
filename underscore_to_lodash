@@ -17,6 +17,7 @@
 # underscore(_.isNaN) -> lodash(_.isNaN)
 # underscore(_.negate) -> lodash(_.negate)
 # underscore(_.partial) -> lodash(_.partial)
+# underscore(_.size) -> lodash(_.size)
 # underscore(_.union) -> lodash(_.union)
 # underscore(_.uniqueId) -> lodash(_.uniqueId)
 # underscore(_.without) -> lodash(_.without)
