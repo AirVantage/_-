@@ -18,6 +18,7 @@
 # underscore(_.negate) -> lodash(_.negate)
 # underscore(_.partial) -> lodash(_.partial)
 # underscore(_.union) -> lodash(_.union)
+# underscore(_.uniqueId) -> lodash(_.uniqueId)
 # underscore(_.without) -> lodash(_.without)
 #
 # underscore(_.defaults) -> lodash(_.defaults) No work to do
