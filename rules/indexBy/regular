@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.indexBy) -> lodash(_.keyBy)
+#
+cd $1 &&
+grasp --equery '_.indexBy($collection, $functionOrString)' \
+    --replace '_.keyBy({{collection}}, {{functionOrString}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.indexBy) -> lodash(_.keyBy)' > /dev/null
