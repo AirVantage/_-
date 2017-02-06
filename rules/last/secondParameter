@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.last) -> lodash(_.takeRight)
+#
+cd $1 &&
+grasp --equery '_.last($array, $n)' \
+    --replace '_.takeRight({{array}}, {{n}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.last) -> lodash(_.takeRight)' > /dev/null
