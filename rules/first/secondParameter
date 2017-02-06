@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.first) -> lodash(_.take)
+#
+cd $1 &&
+grasp --equery '_.first($array, $n)' \
+    --replace '_.take({{array}}, {{n}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.first) -> lodash(_.take)' > /dev/null
