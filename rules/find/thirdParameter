@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.find) -> lodash(_.bind(_.find))
+#
+cd $1 &&
+grasp --equery '_.find($array, $fn, $context)' \
+    --replace '_.bind(_.find, {{context}})({{array}}, {{fn}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.find) -> lodash(_.bind(_.find))' > /dev/null
