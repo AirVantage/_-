@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# underscore(_.flatten) -> lodash(_.flattenDeep)
+#
+cd $1 &&
+grasp --equery '_.flatten($array)' \
+    --replace '_.flattenDeep({{array}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+grasp --equery '_.flatten($array, false)' \
+    --replace '_.flattenDeep({{array}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.flatten) -> lodash(_.flattenDeep)' > /dev/null
