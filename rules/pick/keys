@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.pick) -> lodash(_.pick)
+#
+cd $1 &&
+grasp --equery '_.pick($object, _$keys)' \
+    --replace '_.pick({{object}}, [{{keys | join ", "}}])' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.pick) -> lodash(_.pick)' > /dev/null
