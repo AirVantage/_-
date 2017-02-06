@@ -25,6 +25,7 @@
 # underscore(_.negate) -> lodash(_.negate)
 # underscore(_.partial) -> lodash(_.partial)
 # underscore(_.range) -> lodash(_.range)
+# underscore(_.result) -> lodash(_.result)
 # underscore(_.size) -> lodash(_.size)
 # underscore(_.union) -> lodash(_.union)
 # underscore(_.uniqueId) -> lodash(_.uniqueId)
