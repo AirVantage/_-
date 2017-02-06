@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# underscore(_.any) -> lodash(_.some)
+#
+cd $1 &&
+grasp --equery '_.any($array)' \
+    --replace '_.some({{array}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+grasp --equery '_.any($array, $fn)' \
+    --replace '_.some({{array}}, {{fn}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.any) -> lodash(_.some)' > /dev/null

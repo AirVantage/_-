@@ -64,16 +64,6 @@ cd $DIRECTORY > /dev/null &&
 git commit -a -m 'underscore(_.each) -> lodash(_.forEach)' > /dev/null &&
 cd - > /dev/null
 
-echo 'underscore(_.any) -> lodash(_.some)'
-(
-  grasp --equery '_.any($array)' --replace '_.some({{array}})' \
-    --in-place --only-matching --recursive $DIRECTORY ||
-  echo "$(tput setaf 3)Bad stuff with underscore(_.any) -> lodash(_.some)$(tput setaf 0)"
-) &&
-cd $DIRECTORY > /dev/null &&
-git commit -a -m 'underscore(_.any) -> lodash(_.some)' > /dev/null &&
-cd - > /dev/null
-
 echo 'underscore(_.rest) -> lodash(_.tail)'
 (
   grasp --equery '_.rest($array)' --replace '_.tail({{array}})' \
