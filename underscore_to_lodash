@@ -18,6 +18,7 @@
 # underscore(_.isElement) -> lodash(_.isElement)
 # underscore(_.isEqual) -> lodash(_.isEqual)
 # underscore(_.isNaN) -> lodash(_.isNaN)
+# underscore(_.isNull) -> lodash(_.isNull)
 # underscore(_.isNumber) -> lodash(_.isNumber)
 # underscore(_.isObject) -> lodash(_.isObject)
 # underscore(_.negate) -> lodash(_.negate)
