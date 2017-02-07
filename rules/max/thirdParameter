@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.max) -> lodash(_.last(_.sortBy(_.bind))
+#
+cd $1 &&
+grasp --equery '_.max($list, $fn, $context)' \
+    --replace '_.last(_.sortBy({{list}}, _.bind({{fn}}, {{context}})))' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.max) -> lodash(_.last(_.sortBy(_.bind))' > /dev/null
