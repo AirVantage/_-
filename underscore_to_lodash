@@ -60,16 +60,6 @@ done
 
 exit 0
 
-echo 'lodash(_.pairs) -> lodash(_.toPairs)'
-(
-  grasp --equery '_.pairs($object)' --replace '_.toPairs({{object}})' \
-    --in-place --only-matching --recursive $DIRECTORY ||
-  echo "$(tput setaf 3)Bad stuff with lodash(_.pairs) -> lodash(_.toPairs)$(tput setaf 0)"
-) &&
-cd $DIRECTORY > /dev/null &&
-git commit -a -m 'lodash(_.pairs) -> lodash(_.toPairs)' > /dev/null &&
-cd - > /dev/null
-
 echo 'lodash(_.padLeft) -> lodash(_.padStart)'
 (
   grasp --equery '_.padLeft($string, $length)' --replace '_.padStart({{string}}, {{length}})' \

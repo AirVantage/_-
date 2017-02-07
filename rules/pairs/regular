@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# lodash(_.pairs) -> lodash(_.toPairs)
+#
+cd $1 &&
+grasp --equery '_.pairs($object)' \
+    --replace '_.toPairs({{object}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'lodash(_.pairs) -> lodash(_.toPairs)' > /dev/null
