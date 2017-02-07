@@ -24,6 +24,7 @@
 # underscore(_.isObject) -> lodash(_.isObject)
 # underscore(_.isString) -> lodash(_.isString)
 # underscore(_.isUndefined) -> lodash(_.isUndefined)
+# underscore(_.keys) -> lodash(_.keys)
 # underscore(_.negate) -> lodash(_.negate)
 # underscore(_.partial) -> lodash(_.partial)
 # underscore(_.range) -> lodash(_.range)
