@@ -60,16 +60,6 @@ done
 
 exit 0
 
-echo 'lodash(_.include) -> lodash(_.includes)'
-(
-  grasp --equery '_.include($array, $value)' --replace '_.includes({{array}}, {{value}})' \
-    --in-place --only-matching --recursive $DIRECTORY ||
-  echo "$(tput setaf 3)Bad stuff with lodash(_.include) -> lodash(_.includes)$(tput setaf 0)"
-) &&
-cd $DIRECTORY > /dev/null &&
-git commit -a -m 'lodash(_.include) -> lodash(_.includes)' > /dev/null &&
-cd - > /dev/null
-
 echo 'lodash(_.pairs) -> lodash(_.toPairs)'
 (
   grasp --equery '_.pairs($object)' --replace '_.toPairs({{object}})' \
