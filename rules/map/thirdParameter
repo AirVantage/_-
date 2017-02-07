@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.map) -> lodash(_.map)
+#
+cd $1 &&
+grasp --equery '_.map($collection, $fn, $context)' \
+    --replace '_.map({{collection}}, _.bind({{fn}}, {{context}}))' \
+    --in-place --only-matching --recursive .  > /dev/null &&
+git commit -a -m 'underscore(_.map) -> lodash(_.map)' > /dev/null
