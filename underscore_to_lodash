@@ -11,9 +11,10 @@
 # underscore(_.bind) -> lodash(_.bind)
 # underscore(_.clone) -> lodash(_.clone)
 # underscore(_.compact) -> lodash(_.compact)
+# underscore(_.defaults) -> lodash(_.defaults)
 # underscore(_.difference) -> lodash(_.difference)
-# underscore(_.has) -> lodash(_.has)
 # underscore(_.escape) -> lodash(_.escape)
+# underscore(_.has) -> lodash(_.has)
 # underscore(_.intersection) -> lodash(_.intersection)
 # underscore(_.isArray) -> lodash(_.isArray)
 # underscore(_.isBoolean) -> lodash(_.isBoolean)
@@ -37,7 +38,6 @@
 # underscore(_.values) -> lodash(_.values)
 # underscore(_.without) -> lodash(_.without)
 #
-# underscore(_.defaults) -> lodash(_.defaults) No work to do
 # underscore(_.min) -> lodash(_.min) No work to do
 # underscore(_.max) -> lodash(_.max) No work to do
 # underscore(_.every) -> lodash(_.every) Functions signature differ, problems start with third parameter
