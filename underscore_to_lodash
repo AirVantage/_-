@@ -38,7 +38,6 @@
 # underscore(_.values) -> lodash(_.values)
 # underscore(_.without) -> lodash(_.without)
 #
-# underscore(_.min) -> lodash(_.min) No work to do
 # underscore(_.max) -> lodash(_.max) No work to do
 # underscore(_.every) -> lodash(_.every) Functions signature differ, problems start with third parameter
 
