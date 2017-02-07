@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# airvantage(_.deep) -> lodash(_.set)
+#
+cd $1 &&
+grasp --equery '_.deep($object, $path, $value)' \
+    --replace '_.set({{object}}, {{path}}, {{value}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'airvantage(_.deep) -> lodash(_.set)' > /dev/null
