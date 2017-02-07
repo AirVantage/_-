@@ -13,6 +13,7 @@
 # underscore(_.compact) -> lodash(_.compact)
 # underscore(_.difference) -> lodash(_.difference)
 # underscore(_.has) -> lodash(_.has)
+# underscore(_.escape) -> lodash(_.escape)
 # underscore(_.intersection) -> lodash(_.intersection)
 # underscore(_.isArray) -> lodash(_.isArray)
 # underscore(_.isBoolean) -> lodash(_.isBoolean)
