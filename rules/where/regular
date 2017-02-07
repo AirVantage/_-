@@ -2,6 +2,7 @@
 #
 # underscore(_.where) -> lodash(_.filter)
 #
+cd $1 &&
 grasp --equery '_.where($list, $object)' \
     --replace '_.filter({{list}}, {{object}})' \
     --in-place --only-matching --recursive . > /dev/null &&

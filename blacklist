@@ -11,3 +11,4 @@ _.initial
 _.last
 _.pairs
 _.pluck
+_.where
