@@ -2,6 +2,7 @@
 #
 # underscore(_.rest) -> lodash(_.drop)
 #
+cd $1 &&
 grasp --equery '_.rest($array)' \
     --replace '_.drop({{array}})' \
     --in-place --only-matching --recursive . > /dev/null &&
