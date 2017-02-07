@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.each) -> lodash(_.forEach)
+#
+cd $1 &&
+grasp --equery '_.each($collection, $function)' \
+    --replace '_.forEach({{collection}}, {{function}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.each) -> lodash(_.forEach)' > /dev/null

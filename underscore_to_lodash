@@ -59,16 +59,6 @@ done
 
 exit 0
 
-echo 'underscore(_.each) -> lodash(_.forEach)'
-(
-  grasp --equery '_.each($array, $function)' --replace '_.forEach({{array}}, {{function}})' \
-    --in-place --only-matching --recursive $DIRECTORY ||
-  echo "$(tput setaf 3)Bad stuff with underscore(_.each) -> lodash(_.forEach)$(tput setaf 0)"
-) &&
-cd $DIRECTORY > /dev/null &&
-git commit -a -m 'underscore(_.each) -> lodash(_.forEach)' > /dev/null &&
-cd - > /dev/null
-
 echo 'underscore(_.rest) -> lodash(_.tail)'
 (
   grasp --equery '_.rest($array)' --replace '_.tail({{array}})' \
