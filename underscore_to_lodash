@@ -38,14 +38,21 @@
 # underscore(_.values) -> lodash(_.values)
 # underscore(_.without) -> lodash(_.without)
 #
-
-DIRECTORY=`readlink -f $1`
-if [ ! -d $DIRECTORY ] || [ -z $DIRECTORY ]; then
-  echo "Single directory is mandatory"
-  exit 1
+RULES_FOLDER="rules"
+if [ ! -d $1 ] || [ -z $1 ]
+then
+  echo "$0 <folder with some js>"
+  echo "\tWill run all transformations available in \`$RULES_FOLDER\`."
+  case $1 in
+    -h|--help)
+      exit 0;;
+    *)
+      exit 1;;
+  esac
 fi
 
-for rule in $( find rules -type f | sort )
+DIRECTORY=`readlink -f $1`
+for rule in $( find $RULES_FOLDER -type f | sort )
 do
   if $rule $DIRECTORY
   then
@@ -71,7 +78,7 @@ do
   if grep --quiet --max-count=1 --recursive --exclude-dir=.git -e $fn $DIRECTORY
   then
     grep -rnH --color --exclude-dir=.git -e $fn $DIRECTORY
-    exit 1
+    exit 2
   fi
 done
 
