@@ -55,8 +55,6 @@ do
   fi
 done
 
-exit 0
-
 echo "$(tput setaf 1)"
 echo "#                                   #"
 echo "# Here are calls to handle MANUALLY #"
@@ -68,26 +66,13 @@ grasp --only-matching --recursive --equery '_(__)' $DIRECTORY
 #
 # Check if `grasp` missed some calls
 #
-for fn in \
-  "_\.any"                                                          \
-  "_\.capitalize"                                                   \
-  "_\.contains"                                                     \
-  "_\.each"                                                         \
-  "_\.extend"                                                       \
-  "_\.find"                                                         \
-  "_\.findWhere"                                                    \
-  "_\.first"                                                        \
-  "_\.include("                                                     \
-  "_\.max"         `# When last argument is a function -> _.maxBy`  \
-  "_\.min"         `# When last argument is a function -> _.minBy`  \
-  "_\.omit"        `# When last argument is a function -> _.omitBy` \
-  "_\.padLeft"                                                      \
-  "_\.pairs"                                                        \
-  "_\.pluck"                                                        \
-  "_\.rest"
+for fn in $( cat blacklist )
 do
   if grep --quiet --max-count=1 --recursive --exclude-dir=.git -e $fn $DIRECTORY
   then
     grep -rnH --color --exclude-dir=.git -e $fn $DIRECTORY
+    exit 1
   fi
 done
+
+exit 0

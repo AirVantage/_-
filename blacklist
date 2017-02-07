@@ -1,0 +1,12 @@
+_.any
+_.contains
+_.deep
+_.each
+_.extend
+_.first
+_.include(
+_.indexBy
+_.initial
+_.last
+_.pairs
+_.pluck
