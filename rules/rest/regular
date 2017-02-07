@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# underscore(_.rest) -> lodash(_.drop)
+#
+grasp --equery '_.rest($array)' \
+    --replace '_.drop({{array}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.rest) -> lodash(_.drop)' > /dev/null

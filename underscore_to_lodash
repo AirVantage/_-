@@ -60,16 +60,6 @@ done
 
 exit 0
 
-echo 'underscore(_.rest) -> lodash(_.tail)'
-(
-  grasp --equery '_.rest($array)' --replace '_.tail({{array}})' \
-    --in-place --only-matching --recursive $DIRECTORY ||
-  echo "$(tput setaf 3)Bad stuff with underscore(_.rest) -> lodash(_.tail)$(tput setaf 0)"
-) &&
-cd $DIRECTORY > /dev/null &&
-git commit -a -m 'underscore(_.rest) -> lodash(_.tail)' > /dev/null &&
-cd - > /dev/null
-
 echo 'lodash(_.include) -> lodash(_.includes)'
 (
   grasp --equery '_.include($array, $value)' --replace '_.includes({{array}}, {{value}})' \
