@@ -1,5 +1,7 @@
 # _⚰
 
+<p align="center"><img src="https://media.giphy.com/media/sf5XIKYQXnlC0/source.gif"/></p>
+
 > Transitionning from `underscore` to `lodash`.
 
 To do so we use [Grasp](http://www.graspjs.com/) to refactor using code
