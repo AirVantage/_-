@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.times) -> lodash(_.bind(_.times))
+#
+cd $1 &&
+grasp --equery '_.times($n, $fn, $context)' \
+    --replace '_.times({{n}}, _.bind({{fn}}, {{context}}))' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.times) -> lodash(_.bind(_.times))' > /dev/null
