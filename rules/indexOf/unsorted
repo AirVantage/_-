@@ -2,6 +2,7 @@
 #
 # underscore(_.indexOf) -> lodash(_.indexOf)
 #
+cd $1 &&
 grasp --equery '_.indexOf($array, $value, false)' \
     --replace '_.indexOf({{array}}, {{value}})' \
     --in-place --only-matching --recursive . > /dev/null &&
