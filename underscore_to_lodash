@@ -36,6 +36,7 @@
 # underscore(_.result) -> lodash(_.result)
 # underscore(_.size) -> lodash(_.size)
 # underscore(_.toArray) -> lodash(_.toArray)
+# underscore(_.unescape) -> lodash(_.unescape)
 # underscore(_.union) -> lodash(_.union)
 # underscore(_.uniqueId) -> lodash(_.uniqueId)
 # underscore(_.values) -> lodash(_.values)
