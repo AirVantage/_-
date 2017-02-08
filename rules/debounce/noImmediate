@@ -1,0 +1,9 @@
+#!/bin/sh
+#!/bin/sh
+#
+# underscore(_.debounce) -> lodash(_.debounce)
+#
+grasp --equery '_.debounce($fn, $wait, $immediate)' \
+    --replace '_.debounce({{fn}}, {{wait}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.debounce) -> lodash(_.debounce)' > /dev/null
