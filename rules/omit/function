@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.omit) -> lodash(_.omitBy)
+#
+cd $1 &&
+grasp --equery '_.omit($object, function(_$params) { _$statements })' \
+    --replace '_.omitBy({{object}}, function({{params | join ", "}}) { {{statements | join ";\n"}} })' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.omit) -> lodash(_.omitBy)' > /dev/null
