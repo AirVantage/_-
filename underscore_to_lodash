@@ -11,6 +11,7 @@
 # underscore(_.bind) -> lodash(_.bind)
 # underscore(_.clone) -> lodash(_.clone)
 # underscore(_.compact) -> lodash(_.compact)
+# underscore(_.constant) -> lodash(_.constant)
 # underscore(_.defaults) -> lodash(_.defaults)
 # underscore(_.difference) -> lodash(_.difference)
 # underscore(_.escape) -> lodash(_.escape)
