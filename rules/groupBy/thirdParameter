@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.groupBy) -> lodash(_.groupBy)
+#
+cd $1 &&
+grasp --equery '_.groupBy($object, $fn, $context)' \
+    --replace '_.groupBy({{object}}, _.bind({{fn}}, {{context}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.groupBy) -> lodash(_.bind(_.groupBy))' > /dev/null
