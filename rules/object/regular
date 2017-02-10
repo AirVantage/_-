@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.object) -> lodash(_.zipObject)
+#
+cd $1 &&
+grasp --equery '_.object(_$arrays)' \
+    --replace '_.zipObject({{arrays | join ", "}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.object) -> lodash(_.zipObject)' > /dev/null
