@@ -35,6 +35,7 @@
 # underscore(_.memoize) -> lodash(_.memoize)
 # underscore(_.mixin) -> lodash(_.mixin)
 # underscore(_.negate) -> lodash(_.negate)
+# underscore(_.noop) -> lodash(_.noop)
 # underscore(_.now) -> lodash(_.now)
 # underscore(_.partial) -> lodash(_.partial)
 # underscore(_.property) -> lodash(_.property)
