@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.invoke) -> lodash(_.invokeMap)
+#
+cd $1 &&
+grasp --equery '_.invoke(_$params)' \
+    --replace '_.invokeMap({{params | join ", "}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.invoke) -> lodash(_.invokeMap)' > /dev/null
