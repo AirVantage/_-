@@ -30,6 +30,7 @@
 # underscore(_.isObject) -> lodash(_.isObject)
 # underscore(_.isString) -> lodash(_.isString)
 # underscore(_.isUndefined) -> lodash(_.isUndefined)
+# underscore(_.property) -> lodash(_.property)
 # underscore(_.keys) -> lodash(_.keys)
 # underscore(_.mixin) -> lodash(_.mixin)
 # underscore(_.negate) -> lodash(_.negate)
@@ -58,6 +59,7 @@ then
 fi
 
 DIRECTORY=`readlink -f $1`
+cd $(dirname $0)
 for rule in $( find $RULES_FOLDER -type f | sort )
 do
   if $rule $DIRECTORY
