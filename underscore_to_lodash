@@ -32,6 +32,7 @@
 # underscore(_.isString) -> lodash(_.isString)
 # underscore(_.isUndefined) -> lodash(_.isUndefined)
 # underscore(_.keys) -> lodash(_.keys)
+# underscore(_.memoize) -> lodash(_.memoize)
 # underscore(_.mixin) -> lodash(_.mixin)
 # underscore(_.negate) -> lodash(_.negate)
 # underscore(_.now) -> lodash(_.now)
