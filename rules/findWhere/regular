@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# underscore(_.findWhere) -> lodash(_.find)
+#
+cd $1 &&
+grasp --equery '_.findWhere($array, $object)' \
+    --replace '_.find({{array}}, {{object}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'underscore(_.findWhere) -> lodash(_.find)' > /dev/null
