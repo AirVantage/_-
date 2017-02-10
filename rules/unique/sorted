@@ -2,6 +2,7 @@
 #
 # underscore(_.unique) -> lodash(_.sortedUniq)
 #
+cd $1 &&
 grasp --equery '_.unique($array, true)' \
     --replace '_.sortedUniq({{array}})' \
     --in-place --only-matching --recursive . > /dev/null &&
