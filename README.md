@@ -27,6 +27,39 @@ $ ./underscore_to_lodash --help
 Operates on a __single folder__ containing javascript code.
 All code will be refactored following _conversions_ defined in `./rules`.
 
+#### Run several times
+
+##### Code transformations are not recursive
+
+`./rules` do not change code recursively.
+
+For example, you just applied `_.each` → `_.forEach` conversion. And still,
+your code contains some `_.each`:
+
+
+```js
+_.forEach(ratePlanChargeData.RatePlanChargeTier, function(ratePlanChargeTier) {
+    _.each(ratePlanChargeTier, function(value, key) { /* Stuff */ });
+});
+```
+
+##### Solution
+
+Simply run `./underscore_to_lodash` repetitively until it stops changing code.
+
+__⚠__ Disable rules for `_.omit` and `_.pick` __⚠__
+
+```sh
+$ chmod u-x rules/omit/* rules/pick/*
+```
+
+It prevents wierd tranformations, such as:
+
+```js
+_.omit(o, [[["boomStick"]]])
+```
+
+
 ### Helper scripts
 
 #### `capital.py`
@@ -35,12 +68,12 @@ Reads lines from _standard input_, then reports their occurrences.
 
 ```sh
 $ cat sample
-lapin
-malin
-lapin
+Kelly
+Ash
+Kelly
 $ cat sample | ./capital.py
-1: malin
-2: lapin
+1: Ash
+2: Kelly
 ```
 #### `install_lodash-migrate`
 

@@ -66,7 +66,7 @@ DIRECTORY=`readlink -f $1`
 cd $(dirname $0)
 for rule in $( find $RULES_FOLDER -type f | sort )
 do
-  if $rule $DIRECTORY
+  if [ -x $rule ] && $rule $DIRECTORY
   then
     echo "o: $rule"
   else
