@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import fileinput
 
-counts = { }
+counts = {}
 for term in fileinput.input():
   term = term.strip()
   counts[term] = 1 if not term in counts else counts[term] + 1
