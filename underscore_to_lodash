@@ -5,50 +5,6 @@
 # All JS is refactored: you must remove `node_modules` beforehand.
 #
 
-#
-# Transparent transformations
-#
-# underscore(_.bind) -> lodash(_.bind)
-# underscore(_.clone) -> lodash(_.clone)
-# underscore(_.compact) -> lodash(_.compact)
-# underscore(_.constant) -> lodash(_.constant)
-# underscore(_.defaults) -> lodash(_.defaults)
-# underscore(_.difference) -> lodash(_.difference)
-# underscore(_.escape) -> lodash(_.escape)
-# underscore(_.has) -> lodash(_.has)
-# underscore(_.includes) -> lodash(_.includes)
-# underscore(_.intersection) -> lodash(_.intersection)
-# underscore(_.isArray) -> lodash(_.isArray)
-# underscore(_.isBoolean) -> lodash(_.isBoolean)
-# underscore(_.isDate) -> lodash(_.isDate)
-# underscore(_.isElement) -> lodash(_.isElement)
-# underscore(_.isEmpty) -> lodash(_.isEmpty)
-# underscore(_.isEqual) -> lodash(_.isEqual)
-# underscore(_.isFunction) -> lodash(_.isFunction)
-# underscore(_.isNaN) -> lodash(_.isNaN)
-# underscore(_.isNull) -> lodash(_.isNull)
-# underscore(_.isNumber) -> lodash(_.isNumber)
-# underscore(_.isObject) -> lodash(_.isObject)
-# underscore(_.isString) -> lodash(_.isString)
-# underscore(_.isUndefined) -> lodash(_.isUndefined)
-# underscore(_.keys) -> lodash(_.keys)
-# underscore(_.memoize) -> lodash(_.memoize)
-# underscore(_.mixin) -> lodash(_.mixin)
-# underscore(_.negate) -> lodash(_.negate)
-# underscore(_.noop) -> lodash(_.noop)
-# underscore(_.now) -> lodash(_.now)
-# underscore(_.partial) -> lodash(_.partial)
-# underscore(_.property) -> lodash(_.property)
-# underscore(_.range) -> lodash(_.range)
-# underscore(_.result) -> lodash(_.result)
-# underscore(_.size) -> lodash(_.size)
-# underscore(_.toArray) -> lodash(_.toArray)
-# underscore(_.unescape) -> lodash(_.unescape)
-# underscore(_.union) -> lodash(_.union)
-# underscore(_.uniqueId) -> lodash(_.uniqueId)
-# underscore(_.values) -> lodash(_.values)
-# underscore(_.without) -> lodash(_.without)
-#
 RULES_FOLDER="rules"
 if [ ! -d $1 ] || [ -z $1 ]
 then
