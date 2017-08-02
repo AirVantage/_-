@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# lodash(_.get) || expr -> lodash(_.get)
+#
+cd $1 &&
+grasp --equery '_.get($object, $path) || $expr' \
+    --replace '_.get({{object}}, {{path}}, {{expr}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
+git commit -a -m 'lodash(_.get) || expr -> lodash(_.get)' > /dev/null

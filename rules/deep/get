@@ -6,4 +6,7 @@ cd $1 &&
 grasp --equery '_.deep($object, $path)' \
     --replace '_.get({{object}}, {{path}})' \
     --in-place --only-matching --recursive . > /dev/null &&
+grasp --equery '_.deep($object, $path) || $expr' \
+    --replace '_.get({{object}}, {{path}}, {{expr}})' \
+    --in-place --only-matching --recursive . > /dev/null &&
 git commit -a -m 'airvantage(_.deep) -> lodash(_.get)' > /dev/null

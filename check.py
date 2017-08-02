@@ -60,6 +60,7 @@ CONVERTED_FROM_UNDERSCORE = {
   '_.first': ['_.head', '_.take'],
   '_.flatten': ['_.flatten', '_.flattenDeep'],
   '_.forEach': ['_.forEach(_.bind)'],
+  '_.get': ['_.get'],
   '_.groupBy': ['_.groupBy(_.bind)'],
   '_.include': ['_.includes'],
   '_.indexBy': ['_.keyBy', '_.keyBy(_.bind)'],
