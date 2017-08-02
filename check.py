@@ -70,7 +70,7 @@ CONVERTED_FROM_UNDERSCORE = {
   '_.last': ['_.last', '_.takeRight'],
   '_.map': ['_.map', '_.map(_.bind)'],
   '_.mapObject': ['_.mapValues', '_.mapValues(_.bind)'],
-  '_.max': ['_.last', '_.last(_.bind)'],
+  '_.max': ['_.maxBy', '_.maxBy(_.bind)'],
   '_.min': ['_.minBy', '_.minBy(_.bind)'],
   '_.object': ['_.zipObject'],
   '_.omit': ['_.omit', '_.omitBy'],
