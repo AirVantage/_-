@@ -82,7 +82,7 @@ CONVERTED_FROM_UNDERSCORE = {
   '_.require': ['_.require'],
   '_.rest': ['_.drop'],
   '_.some': ['_.some', '_.some(_.bind)'],
-  '_.sortBy': ['_.sortBy', '_.sortBy(_.bind)'],
+  '_.sortBy': ['_.sortBy(_.bind)'],
   '_.times': ['_.times', '_.times(_.bind)'],
   '_.uniq': ['_.sortedUniq', '_.sortedUniqBy', '_.uniqBy'],
   '_.unique': ['_.sortedUniq', '_.sortedUniqBy', '_.uniqBy'],

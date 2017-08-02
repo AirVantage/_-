@@ -1,9 +1,0 @@
-#!/bin/sh
-#
-# underscore(_.sortBy) -> lodash(_.sortBy)
-#
-cd $1 &&
-grasp --equery '_.sortBy($list)' \
-    --replace '_.sortBy({{list}}, _.size)' \
-    --in-place --only-matching --recursive . > /dev/null &&
-git commit -a -m 'underscore(_.sortBy) -> lodash(_.sortBy)' > /dev/null
