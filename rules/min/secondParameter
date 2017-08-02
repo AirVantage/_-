@@ -1,9 +1,9 @@
 #!/bin/sh
 #
-# underscore(_.min) -> lodash(_.head(_.sortBy))
+# underscore(_.min) -> lodash(_.minBy)
 #
 cd $1 &&
 grasp --equery '_.min($list, $fn)' \
-    --replace '_.head(_.sortBy({{list}}, {{fn}}))' \
+    --replace '_.minBy({{list}}, {{fn}})' \
     --in-place --only-matching --recursive . > /dev/null &&
-git commit -a -m 'underscore(_.min) -> lodash(_.head(_.sortBy))' > /dev/null
+git commit -a -m 'underscore(_.min) -> lodash(_.minBy)' > /dev/null
